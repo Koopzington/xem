@@ -623,6 +623,19 @@ span.master {
   background: none;
 }
 
+ul li.mal,
+td.mal,
+tr.mal,
+span.mal,
+.mal li.episode {
+    background: #18529D;
+}
+h3.mal,
+span.mal {
+    color: #18529D;
+    background: none;
+}
+
 /*donno*/
 
 span.note {
