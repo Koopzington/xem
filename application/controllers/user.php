@@ -184,4 +184,3 @@ class User extends SuperController {
 	}
 
 }
-?>

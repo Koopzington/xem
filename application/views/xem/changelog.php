@@ -1,13 +1,13 @@
 <ul class="breadcrumb">
-    <?if($element->isDraft()):?>
+    <?php if($element->isDraft()):?>
         <li><?=anchor('xem/draft/'.$element->parent, $element->main_name)?> <span class="divider">/</span></li>
-    <?else:?>
+    <?php else:?>
         <li><?=anchor('xem/show/'.$element->id, $element->main_name)?> <span class="divider">/</span></li>
-    <?endif?>
+    <?php endif?>
     <li class="active">Changelog</li>
 </ul>
 
-<?if($events):?>
+<?php if($events):?>
 <table id="changelog">
     <!--
     <tr>
@@ -16,17 +16,17 @@
         <th>Description</th>
     </tr>
     -->
-    <?foreach($events as $curEvent):?>
+    <?php foreach($events as $curEvent):?>
     <tr>
         <td style="padding-right:20px;white-space:nowrap;" title="id: <?=$curEvent['id']?>"><?=$curEvent['time']?></td>
         <td style="text-align:right;padding-right:4px;"><?=$curEvent['user_nick']?></td>
         <td><?=$curEvent['human_form']?></td>
     </tr>
-    <?endforeach?>
+    <?php endforeach?>
 </table>
-<?else:?>
+<?php else:?>
     <h2>No data found</h2>
-<?endif;?>
+<?php endif;?>
 
 <script type="text/javascript">
 $('tr:has(.draft_bottom)').addClass('draft_bottom');

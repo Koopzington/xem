@@ -98,7 +98,7 @@
 -->
 </style>
 
-<?if($curShows):?>
+<?php if($curShows):?>
 
     <div id="adminListTB" class="row">
         <div style="box-sizing: border-box;display: block;float: left; width: 350px;">
@@ -155,10 +155,10 @@
             </tr>
         </thead>
         <tbody>
-        <?foreach($curShows as $root_id=>$shows):?>
-            <?if (!isset($shows['public'])) continue;?>
-            <?$curPublicShow = $shows['public']?>
-            <tr class="public <? echo $curPublicShow->status > 0 ? 'show-public' : 'show-deleted' ?><? echo $curPublicShow->status >= 1 && $curPublicShow->status <= 3 ? ' show-locked' : '' ?>">
+        <?php foreach($curShows as $root_id=>$shows):?>
+            <?php if (!isset($shows['public'])) continue;?>
+            <?php $curPublicShow = $shows['public']?>
+            <tr class="public <?php echo $curPublicShow->status > 0 ? 'show-public' : 'show-deleted' ?><?php echo $curPublicShow->status >= 1 && $curPublicShow->status <= 3 ? ' show-locked' : '' ?>">
                 <td>
                     <?=anchor('xem/show/'.$curPublicShow->id, 'Show ' . $curPublicShow->id)?>
                 </td>
@@ -166,21 +166,22 @@
                     <?=$curPublicShow->main_name?>
                 </td>
                 <td>
-                    <span title="<?=$curPublicShow->created?> UTC"><? $data = explode(' ', $curPublicShow->created); echo $data[0] ?></span>
+                    <span title="<?=$curPublicShow->created?> UTC"><?php
+                        $data = explode(' ', $curPublicShow->created); echo $data[0] ?></span>
                 </td>
                 <td>
-                    <?echo $curPublicShow->last_modified == "0000-00-00 00:00:00" ? '' : $curPublicShow->last_modified .' UTC'?>
+                    <?php echo $curPublicShow->last_modified == "0000-00-00 00:00:00" ? '' : $curPublicShow->last_modified .' UTC'?>
                 </td>
                 <td>
                     <?=$curPublicShow->status?>
                 </td>
             </tr>
 
-            <?if(isset($shows['draft'])):?>
+            <?php if(isset($shows['draft'])):?>
                 <!-- start drafts -->
-                <?foreach($shows['draft'] as $id=>$draft):?>
+                <?php foreach($shows['draft'] as $id=>$draft):?>
                     <tr class="draft
-                        <?
+                        <?php
                         switch ($draft->status) {
                             case -1:
                                 echo "draft-old";
@@ -198,29 +199,30 @@
                         ?>
                     ">
                         <td>
-                            <?if($draft->status > 0):?>
+                            <?php if($draft->status > 0):?>
                                 <?=anchor('xem/draft/'.$draft->parent, 'Draft ' . $id)?>
-                            <?else:?>
+                            <?php else:?>
                                 <?=anchor('xem/adminShow/'.$draft->parent, 'Draft ' . $id)?>
-                            <?endif;?>
+                            <?php endif;?>
                         </td>
                         <td>
                             <?=$draft->main_name?>
                         </td>
                         <td>
-                            <span title="<?=$draft->created?> UTC"><? $data = explode(' ', $draft->created); echo $data[0] ?></span>
+                            <span title="<?=$draft->created?> UTC"><?php
+                                $data = explode(' ', $draft->created); echo $data[0] ?></span>
                         </td>
                         <td>
-                            <?echo $draft->last_modified == "0000-00-00 00:00:00" ? '' : $draft->last_modified .' UTC'?>
+                            <?php echo $draft->last_modified == "0000-00-00 00:00:00" ? '' : $draft->last_modified .' UTC'?>
                         </td>
                         <td>
                             <?=$draft->status?>
                         </td>
                     </tr>
 
-                    <?if(isset($curShows[$id])):?>
+                    <?php if(isset($curShows[$id])):?>
                         <!-- start oldDrafts -->
-                        <?foreach($curShows[$id]['draft'] as $id=>$draft):?>
+                        <?php foreach($curShows[$id]['draft'] as $id=>$draft):?>
                             <tr class="draft draft-old">
                                 <td>
                                     <?=anchor('xem/adminShow/'.$id, 'Draft ' . $id)?>
@@ -229,31 +231,32 @@
                                     <?=$draft->main_name?>
                                 </td>
                                 <td>
-                                    <span title="<?=$draft->created?> UTC"><? $data = explode(' ', $draft->created); echo $data[0] ?></span>
+                                    <span title="<?=$draft->created?> UTC"><?php
+                                        $data = explode(' ', $draft->created); echo $data[0] ?></span>
                                 </td>
                                 <td>
-                                    <?echo $draft->last_modified == "0000-00-00 00:00:00" ? '' : $draft->last_modified .' UTC'?>
+                                    <?php echo $draft->last_modified == "0000-00-00 00:00:00" ? '' : $draft->last_modified .' UTC'?>
                                 </td>
                                 <td>
                                     <?=$draft->status?>
                                 </td>
                             </tr>
                             <!-- end oldDrafts -->
-                        <?endforeach;?>
-                    <?endif?>
-                <?endforeach;?>
+                        <?php endforeach;?>
+                    <?php endif?>
+                <?php endforeach;?>
                 <!-- end drafts -->
 
-            <?endif?>
-        <?endforeach?>
+            <?php endif?>
+        <?php endforeach?>
         </tbody>
     </table>
 
-<?else:?>
+<?php else:?>
 <div class="well">
     <h1>No Shows Found</h1>
 </div>
-<?endif;?>
+<?php endif;?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.28.15/js/jquery.tablesorter.combined.min.js"></script>
 <script>

@@ -80,4 +80,3 @@ class SuperController extends CI_Controller {
 		$this->load->view('bottom', $this->out);
 	}
 }
-?>

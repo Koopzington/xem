@@ -1,4 +1,4 @@
-<?
+<?php
 class DBObjectCache{
 	private $obj = array();
 	
@@ -18,4 +18,3 @@ class DBObjectCache{
 }
 
 
-?>

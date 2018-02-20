@@ -1,4 +1,4 @@
-<?
+<?php
 class Directrule extends DBObject{
 
 	function __construct($oh, $id=0){
@@ -23,4 +23,3 @@ class Directrule extends DBObject{
 	}
 }
 
-?>

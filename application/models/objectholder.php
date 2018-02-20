@@ -1,4 +1,4 @@
-<?
+<?php
 class Objectholder{
 	public $db = null;
 	public $cache = null;
@@ -12,4 +12,3 @@ class Objectholder{
 		$this->dbcache = $dbcache; // database / persistent cache
 	}
 }
-?>

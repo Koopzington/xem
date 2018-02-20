@@ -72,4 +72,3 @@ class Index extends SuperController {
 	}
 
 }
-?>

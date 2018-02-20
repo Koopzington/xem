@@ -2,7 +2,7 @@
     <h1><?=$user_nick?> <small>level <?=$user_lvl?></small></h1>
 </div>
 
-<?if(isset($error)): ?><div class="alert alert-error"><? echo validation_errors(); ?><?=$reason ?></div><? endif;?>
+<?php if(isset($error)): ?><div class="alert alert-error"><?php echo validation_errors(); ?><?=$reason ?></div><?php endif;?>
 
 <?=form_open("user/changePw",array('id'=>'changePw', 'class'=>'form-inline'))?>
     <legend>Change Password</legend>
@@ -16,16 +16,16 @@
     <span class="help-block">Note: Upon changing your password, you must log back in!</span>
 </form>
 
-<?if(grantAccess(4)):?>
+<?php if(grantAccess(4)):?>
 <br/>
 <?=form_open("user/emailSettings",array('class'=>'form-inline'))?>
     <legend>E-mail Notifications:</legend>
     <ul>
-        <li><label style="width: 160px;" >New user activation</label><input name="email_new_account" type="checkbox" <?if($config_email_new_account)echo 'checked="checked"'; ?> value="1"/></li>
-        <li><label style="width: 160px;" >New show creation</label><input name="email_new_show" type="checkbox" <?if($config_email_new_show)echo 'checked="checked"'; ?> value="1"/></li>
-        <li><label style="width: 160px;" >Draft public request</label><input name="email_public_request" type="checkbox" <?if($config_email_public_request)echo 'checked="checked"'; ?> value="1"/></li>
+        <li><label style="width: 160px;" >New user activation</label><input name="email_new_account" type="checkbox" <?php if($config_email_new_account)echo 'checked="checked"'; ?> value="1"/></li>
+        <li><label style="width: 160px;" >New show creation</label><input name="email_new_show" type="checkbox" <?php if($config_email_new_show)echo 'checked="checked"'; ?> value="1"/></li>
+        <li><label style="width: 160px;" >Draft public request</label><input name="email_public_request" type="checkbox" <?php if($config_email_public_request)echo 'checked="checked"'; ?> value="1"/></li>
     </ul>
     <input type="submit" value="Save Email Settings" class="btn btn-primary" />
     <br/>
 </form>
-<?endif;?>
+<?php endif;?>

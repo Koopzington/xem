@@ -3,7 +3,7 @@
 </div>
 
 <?=form_open("user/login/".$uri2, array('class' => 'form-horizontal'))?>
-    <?if(isset($login_unsuccessfull)): ?><div class="alert alert-error"><?=$reason ?></div><? endif;?>
+    <?php if(isset($login_unsuccessfull)): ?><div class="alert alert-error"><?=$reason ?></div><?php endif;?>
     <div class="control-group">
         <label class="control-label" for="user">User</label>
         <div class="controls">

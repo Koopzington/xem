@@ -1,4 +1,4 @@
-<?
+<?php
 
 class Content extends DBObject {
 
@@ -27,4 +27,3 @@ class Content extends DBObject {
     }
 }
 
-?>

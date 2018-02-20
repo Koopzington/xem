@@ -1,4 +1,4 @@
-<?
+<?php
 class DBCache{
 	public $db = null;
 	function __construct($db){
@@ -94,4 +94,3 @@ class DBCache{
     }// clear_all_cache
 
 }
-?>

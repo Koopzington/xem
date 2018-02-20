@@ -1,4 +1,4 @@
-<?
+<?php
 class Season extends DBObject{
 
 	function __construct($oh, $id=0){
@@ -65,4 +65,3 @@ class Season extends DBObject{
 	}
 }
 
-?>

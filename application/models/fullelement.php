@@ -1,4 +1,4 @@
-<?
+<?php
 class FullElement{
 
 	public $db;
@@ -303,4 +303,3 @@ class FullElement{
     }
 
 }
-?>

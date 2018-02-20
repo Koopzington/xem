@@ -1,4 +1,4 @@
-<?
+<?php
 class Element extends DBObject{
 
 	function __construct($oh, $id=0){
@@ -12,4 +12,3 @@ class Element extends DBObject{
 	}
 }
 
-?>

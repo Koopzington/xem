@@ -19,18 +19,18 @@
         </tr>
     </thead>
     <tbody>
-        <? foreach($locations->result() as $row):?>
+    <?php foreach($locations->result() as $row):?>
         <tr class="<?=$row->name?>">
             <td><?=$row->id?></td>
             <td><?=$row->name?></td>
             <td><?=$row->description?></td>
             <td><?=anchor($row->url)?></td>
         </tr>
-        <? endforeach?>
+        <?php endforeach?>
     </tbody>
 </table>
 
-<?if($events):?>
+<?php if($events):?>
 <h2>Previously on XEM</h2>
 <table id="changelog">
     <!--
@@ -40,12 +40,12 @@
         <th>Description</th>
     </tr>
     -->
-    <?foreach($events as $curEvent):?>
+    <?php foreach($events as $curEvent):?>
     <tr>
         <td style="padding-right:20px;white-space:nowrap;" title="id: <?=$curEvent['id']?>"><?=$curEvent['time']?></td>
         <td style="text-align:right;padding-right:4px;"><?=$curEvent['user_nick']?></td>
-        <td><?=$curEvent['human_form']?><?if($curEvent['element_id']):?> &rarr; <b><?=anchor("xem/show/".$curEvent['element_id'], "element ".$curEvent['element_id'])?></b><?endif;?></td>
+        <td><?=$curEvent['human_form']?><?php if($curEvent['element_id']):?> &rarr; <b><?=anchor("xem/show/".$curEvent['element_id'], "element ".$curEvent['element_id'])?></b><?php endif;?></td>
     </tr>
-    <?endforeach?>
+    <?php endforeach?>
 </table>
-<?endif;?>
+<?php endif;?>

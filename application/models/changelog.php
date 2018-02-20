@@ -1,4 +1,4 @@
-<?
+<?php
 class Changelog{
 	private $oh;
 	private $db;
@@ -251,4 +251,3 @@ class Changelog{
 	}
 }
 
-?>

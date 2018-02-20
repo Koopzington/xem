@@ -1,10 +1,10 @@
 <div>
-    <?if($curShows):?>
-    <?if(isset($forceAdd)):?>
+    <?php if($curShows):?>
+    <?php if(isset($forceAdd)):?>
         <h2>We already have shows that contain that name</h2>
-    <?else:?>
-        <h3><? echo count($shows); ?> Shows Found</h3>
-    <?endif;?>
+    <?php else:?>
+        <h3><?php echo count($shows); ?> Shows Found</h3>
+    <?php endif;?>
         <table style="width: auto; margin-bottom: 0;">
             <thead>
                 <tr>
@@ -14,29 +14,29 @@
                 </tr>
             </thead>
             <tbody>
-            <?foreach($curShows as $show):?>
+            <?php foreach($curShows as $show):?>
                 <tr>
                     <td>
                         <?=anchor('xem/show/'.$show->id,$show->main_name)?>
-                        <?if(isset($show->name)):?>
+                        <?php if(isset($show->name)):?>
                             (<?=$show->name?>)
-                        <?endif?>
+                        <?php endif?>
                     </td>
                     <td>
-                        <span title="<?=$show->created?> UTC"><? $data = explode(' ', $show->created); echo $data[0] ?></span>
+                        <span title="<?=$show->created?> UTC"><?php $data = explode(' ', $show->created); echo $data[0] ?></span>
                     </td>
                     <td>
-                        <?echo $show->last_modified == "0000-00-00 00:00:00" ? '' : $show->last_modified .' UTC'?>
+                        <?php echo $show->last_modified == "0000-00-00 00:00:00" ? '' : $show->last_modified .' UTC'?>
                     </td>
                 </tr>
-            <?endforeach?>
+            <?php endforeach?>
             </tbody>
         </table>
-    <?else:?>
+    <?php else:?>
         <h2>No Shows Found</h2>
-    <?endif;?>
+    <?php endif;?>
 
-    <?if(isset($forceAdd)):?>
+    <?php if(isset($forceAdd)):?>
     <br>
     <div class="well" style="margin-bottom: 0;">
         <h2>Add Show</h2>
@@ -46,7 +46,7 @@
             <input type="submit" value="Add" class="btn btn-danger">
         </form>
     </div>
-    <?endif;?>
+    <?php endif;?>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.28.15/js/jquery.tablesorter.combined.min.js"></script>

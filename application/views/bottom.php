@@ -1,5 +1,5 @@
 
-                <?if(isset($cmse))echo $cmse; ?>
+                <?php if(isset($cmse))echo $cmse; ?>
 
             </div><!-- /container-fluid -->
         </div><!-- /row-fluid -->

@@ -1,4 +1,4 @@
-<?
+<?php
 class History{
 	public $db = null;
 	private $session = null;
@@ -69,4 +69,3 @@ class History{
 
 
 }
-?>

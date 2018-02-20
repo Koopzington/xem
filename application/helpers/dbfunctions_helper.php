@@ -1,4 +1,4 @@
-<?
+<?php
 
 function userNameByID($db,$id){
 	$user = $db->get_where('users',array('user_id'=>$id));
@@ -164,4 +164,3 @@ function justNames($objs) {
    return $out;
 }
 
-?>

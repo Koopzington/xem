@@ -1,4 +1,4 @@
-<?
+<?php
 class Postman{
 	private $db = null;
 	private $oh = null;
@@ -463,4 +463,3 @@ class Postman{
 
 }
 
-?>

@@ -45,7 +45,7 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 |
 */
 
-define('REGISTRATION_OPEN', false);
+define('REGISTRATION_OPEN', true);
 
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

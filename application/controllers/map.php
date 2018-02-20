@@ -375,4 +375,3 @@ class Map extends CI_Controller {
 	}
 }
 
-?>

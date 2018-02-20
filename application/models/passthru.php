@@ -1,4 +1,4 @@
-<?
+<?php
 class Passthru extends DBObject{
 
 	function __construct($oh, $id=0){
@@ -19,4 +19,3 @@ class Passthru extends DBObject{
 		
 }
 
-?>

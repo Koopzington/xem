@@ -1,14 +1,14 @@
 <div class="page-header">
     <h1>Register</h1>
 </div>
-<?if(!REGISTRATION_OPEN):?>
+<?php if(!REGISTRATION_OPEN):?>
     <div class="alert alert-block alert-error">
         <h4>Registration closed!!</h4>
         Sorry we have registrations closed at the moment, join #xem on irc.freenode.net for further help.
     </div>
-<?else:?>
+<?php else:?>
 <?=form_open("user/register/", array('class' => 'form-horizontal'))?>
-<?if(isset($register_unsuccessfull)): ?><div class="alert alert-error"><? echo validation_errors(); ?><?=$reason ?></div><? endif;?>
+<?php if(isset($register_unsuccessfull)): ?><div class="alert alert-error"><?php echo validation_errors(); ?><?=$reason ?></div><?php endif;?>
     <div class="control-group">
         <label class="control-label" for="user">Username</label>
         <div class="controls">
@@ -42,4 +42,4 @@
         <button type="button" class="btn">Cancel</button>
     </div>
 </form>
-<?endif;?>
+<?php endif;?>

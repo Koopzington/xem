@@ -1,4 +1,4 @@
-<?
+<?php
 class DBObject{
 	private $cache;
 	private $dataFields = array();

@@ -69,4 +69,4 @@ if ($ok == 6)
 else
 	print "Some tests have FAILED\n";
 
-?>
+

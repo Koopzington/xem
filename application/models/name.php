@@ -1,4 +1,4 @@
-<?
+<?php
 class Name extends DBObject{
 	
 	function __construct($oh, $id=0){
@@ -7,4 +7,3 @@ class Name extends DBObject{
       	parent::__construct($oh, $dataFields, $id);
 	}
 }
-?>

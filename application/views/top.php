@@ -43,11 +43,11 @@ made at http://patorjk.com/software/taag/ with font Georgia11
 -->
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <? echo link_tag('css/smoothness/jquery-ui-1.11.4.custom.css', 'stylesheet', 'text/css'); ?>
+        <?php echo link_tag('css/smoothness/jquery-ui-1.11.4.custom.css', 'stylesheet', 'text/css'); ?>
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.css" rel="stylesheet" type="text/css" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.28.15/css/theme.bootstrap_2.min.css" rel="stylesheet" type="text/css" />
-        <? echo link_tag('css/main.css', 'stylesheet', 'text/css'); ?>
+        <?php echo link_tag('css/main.css', 'stylesheet', 'text/css'); ?>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
         <script src="<?php echo base_url();?>js/html5boilerplate.consolewrapper.js"></script>
@@ -63,17 +63,17 @@ made at http://patorjk.com/software/taag/ with font Georgia11
         <script src="<?php echo base_url();?>js/xem.logo.js"></script>
 
     </head>
-<body class="<?if(isset($fullelement)){if($fullelement->isDraft) echo 'draft';} ?>">
+<body class="<?php if(isset($fullelement)){if($fullelement->isDraft) echo 'draft';} ?>">
     <!--[if lte IE 9]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
     <![endif]-->
 <div id="page">
-    <?if(isset($fullelement)):?>
-    <?if($fullelement->isDraft):?>
+    <?php if(isset($fullelement)):?>
+    <?php if($fullelement->isDraft):?>
     <div class="draft_background" id="draft_left">DRAFT</div>
     <div class="draft_background" id="draft_right">DRAFT</div>
-    <?endif?>
-    <?endif?>
+    <?php endif?>
+    <?php endif?>
 
     <div class="navbar navbar-inverse">
         <div class="navbar-inner">
@@ -90,17 +90,17 @@ made at http://patorjk.com/software/taag/ with font Georgia11
                     <ul class="nav">
                         <li class="divider-vertical"></li>
                         <li class="dropdown">
-                            <?if($logedIn):?>
-                            <a class="dropdown-toggle" href="#" data-toggle="dropdown"><? echo $user_nick ?> <strong class="caret"></strong></a>
+                            <?php if($logedIn):?>
+                            <a class="dropdown-toggle" href="#" data-toggle="dropdown"><?php echo $user_nick ?> <strong class="caret"></strong></a>
                             <ul class="dropdown-menu">
                                 <li><?=anchor("user","<i class='icon-user'></i> Profile (Level $user_lvl)")?></li>
                                 <li><?=anchor("user/logout/".$uri, "<i class='icon-off'></i> Log Out")?></li>
-                            <?if(grantAccess(4)):?>
+                            <?php if(grantAccess(4)):?>
                                 <li class="divider"></li>
                                 <li><?=anchor("xem/adminShows","<i class='icon-fire'></i> Admin View")?></li>
-                            <?endif?>
+                            <?php endif?>
                             </ul>
-                            <?else:?>
+                            <?php else:?>
                             <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
                             <div class="dropdown-menu" style="padding: 10px 15px;">
                                 <?=form_open("user/login/".$uri, array('class'=>'form-inline'))?>
@@ -125,7 +125,7 @@ made at http://patorjk.com/software/taag/ with font Georgia11
                                 </fieldset>
                                 </form>
                             </div>
-                            <?endif?>
+                            <?php endif?>
                         </li>
                         <li class="divider-vertical"></li>
                         <li>
@@ -142,15 +142,15 @@ made at http://patorjk.com/software/taag/ with font Georgia11
                         <li style="padding-right: 5px;">
                             <?=form_open("xem/addShow",array('class'=>'navbar-search','id'=>'addShowForm'))?>
                                 <select id="elementSelector" style="margin-bottom: 0;">
-                                    <?if($logedIn):?>
+                                    <?php if($logedIn):?>
                                         <option value="0">Add New Show</option>
-                                    <?endif?>
-                                    <option value="choose" <?if(!isset($fullelement)){echo 'selected="selected"';} ?>>Choose a Show</option>
-                                    <?foreach($shows as $row):?>
-                                        <option value="<?=$row->id?>"  <?if(isset($fullelement)){if($fullelement->id==$row->id) echo 'selected="selected"';} ?>>
+                                    <?php endif?>
+                                    <option value="choose" <?php if(!isset($fullelement)){echo 'selected="selected"';} ?>>Choose a Show</option>
+                                    <?php foreach($shows as $row):?>
+                                        <option value="<?=$row->id?>"  <?php if(isset($fullelement)){if($fullelement->id==$row->id) echo 'selected="selected"';} ?>>
                                             <?php echo strlen($row->main_name) > 40 ? substr($row->main_name,0,40)."..." : $row->main_name; ?>
                                         </option>
-                                    <?endforeach?>
+                                    <?php endforeach?>
                                 </select>
                                 <div id="newStuff" class="hide form-inline">
                                     <input id="newElementName" type="text" name="main_name" class="search-query" <?=$disabled?>/>
@@ -166,7 +166,7 @@ made at http://patorjk.com/software/taag/ with font Georgia11
                     <ul class="nav pull-right">
                         <li>
                             <?=form_open("search/",array('method'=>'get','class'=>'navbar-search','id'=>'searchForm'))?>
-                                <input class="search-query" id="search" type="text" name="q" <?if(isset($searchQeuery)){echo 'value="'.$searchQeuery.'"';}?>/>
+                                <input class="search-query" id="search" type="text" name="q" <?php if(isset($searchQeuery)){echo 'value="'.$searchQeuery.'"';}?>/>
                                 <input id="search-submit" type="submit" value="Search">
                             </form>
                         </li>

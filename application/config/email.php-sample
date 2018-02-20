@@ -1,4 +1,4 @@
-<?
+<?php
 $config['protocol'] = 'smtp';
 
 $config['smtp_host'] = 'localhost';
@@ -13,4 +13,3 @@ $config['wordwrap'] = FALSE;
 $config['mailtype'] = 'html';
 $config['crlf'] = '\r\n';
 $config['newline'] = '\r\n';
-?>

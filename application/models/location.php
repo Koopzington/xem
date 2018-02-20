@@ -1,4 +1,4 @@
-<?
+<?php
 class Location extends DBObject{
 
 	function __construct($oh, $id=0){
@@ -8,4 +8,3 @@ class Location extends DBObject{
 	}
 }
 
-?>
